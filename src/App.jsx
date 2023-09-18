@@ -1,9 +1,16 @@
 import { useEffect, useState } from "react";
+import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom'
 import "./App.css";
 import GameCard from "./componets/GameCard";
+import axios from 'axios'
+import {useParams} from 'react-router-dom'
 
-const API_URL =
-  "https://api.rawg.io/api/games?key=3285838dead84429b1a8ed2261825e34";
+// const API_URL =
+//   "https://api.rawg.io/api/games?key=3285838dead84429b1a8ed2261825e34";
+
+const BASE_API = import.meta.env.VITE_BASE_REACT_APP_URL
+const API_KEY = import.meta.env.VITE_APP_API_KEY
+const API_URL = `${BASE_API}?key=${API_KEY}`
 
 function App() {
   const [games, setGames] = useState([]);
